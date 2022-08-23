@@ -11,12 +11,17 @@
 body {
   margin-left: 50px;
   margin-top: 30px;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
   font-family: 'Poppins', sans-serif;
+  width: 100%;
 }
 
 form {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
 }
 
 label {
@@ -54,4 +59,11 @@ button {
 
 button:hover {
   opacity: .9;
+}
+
+.side {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  width: 70%;
 }
