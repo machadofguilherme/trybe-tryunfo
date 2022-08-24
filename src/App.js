@@ -121,15 +121,8 @@ class App extends React.Component {
           {
             changeBool === true && onSaveButtonClick.map((cards) => (
               <Card
-                key={ cards.cardName }
-                cardName={ cards.cardName }
-                cardDescription={ cards.cardDescription }
-                cardAttr1={ cards.cardAttr1 }
-                cardAttr2={ cards.cardAttr2 }
-                cardAttr3={ cards.cardAttr3 }
-                cardImage={ cards.cardImage }
-                cardRare={ cards.cardRare }
-                cardTrunfo={ cards.cardTrunfo }
+                key={ cards }
+                { ...cards }
               />
             ))
           }
