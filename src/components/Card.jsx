@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import SuperTrunfo from './SuperTrunfo';
 
 export default class Card extends Component {
   render() {
@@ -18,7 +19,9 @@ export default class Card extends Component {
       // onSaveButtonClick,
     } = this.props;
 
-    if (!cardTrunfo) return cardTrunfo || !cardTrunfo;
+    const checkTrunfoCard = (cardTrunfo)
+      ? <article data-testid="trunfo-card"><SuperTrunfo /></article>
+      : '';
 
     return (
       <section>
@@ -52,11 +55,7 @@ export default class Card extends Component {
           { cardRare }
         </p>
 
-        <p data-testid="trunfo-card">
-          { cardTrunfo }
-          {' '}
-          || Super Trunfo
-        </p>
+        { checkTrunfoCard }
       </section>
     );
   }

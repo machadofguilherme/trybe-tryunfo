@@ -15,7 +15,7 @@ export default class Form extends Component {
       // hasTrunfo,
       isSaveButtonDisabled,
       onInputChange,
-      onSaveButtonClick,
+      // onSaveButtonClick,
     } = this.props;
 
     return (
@@ -24,11 +24,11 @@ export default class Form extends Component {
           Nome:
           <input
             type="text"
-            name="name"
+            name="cardName"
             id="name"
-            data-testid="name-input"
             value={ cardName }
             onChange={ onInputChange }
+            data-testid="name-input"
           />
         </label>
 
@@ -36,7 +36,7 @@ export default class Form extends Component {
           Descrição:
           <textarea
             type="text"
-            name="description"
+            name="cardDescription"
             id="description"
             data-testid="description-input"
             value={ cardDescription }
@@ -48,6 +48,7 @@ export default class Form extends Component {
           Atributo 1.
           <input
             type="number"
+            name="cardAttr1"
             id="attr1"
             data-testid="attr1-input"
             value={ cardAttr1 }
@@ -60,6 +61,7 @@ export default class Form extends Component {
           <input
             type="number"
             id="attr2"
+            name="cardAttr2"
             data-testid="attr2-input"
             value={ cardAttr2 }
             onChange={ onInputChange }
@@ -72,6 +74,7 @@ export default class Form extends Component {
             type="number"
             id="attr3"
             data-testid="attr3-input"
+            name="cardAttr3"
             value={ cardAttr3 }
             onChange={ onInputChange }
           />
@@ -83,6 +86,7 @@ export default class Form extends Component {
             type="text"
             id="image"
             data-testid="image-input"
+            name="cardImage"
             value={ cardImage }
             onChange={ onInputChange }
           />
@@ -93,6 +97,7 @@ export default class Form extends Component {
           <select
             data-testid="rare-input"
             value={ cardRare }
+            name="cardRare"
             onChange={ onInputChange }
           >
             <option>normal</option>
@@ -104,7 +109,7 @@ export default class Form extends Component {
         <label htmlFor="super-trunfo">
           <input
             type="checkbox"
-            name="super-trunfo"
+            name="cardTrunfo"
             id="super-trunfo"
             data-testid="trunfo-input"
             checked={ cardTrunfo }
@@ -117,7 +122,7 @@ export default class Form extends Component {
           type="button"
           data-testid="save-button"
           disabled={ isSaveButtonDisabled }
-          onClick={ onSaveButtonClick }
+          // onClick={ onSaveButtonClick }
         >
           Salvar
         </button>
@@ -129,14 +134,14 @@ export default class Form extends Component {
 Form.propTypes = {
   cardName: PropTypes.string.isRequired,
   cardDescription: PropTypes.string.isRequired,
-  cardAttr1: PropTypes.string.isRequired,
-  cardAttr2: PropTypes.string.isRequired,
-  cardAttr3: PropTypes.string.isRequired,
+  cardAttr1: PropTypes.number.isRequired,
+  cardAttr2: PropTypes.number.isRequired,
+  cardAttr3: PropTypes.number.isRequired,
   cardImage: PropTypes.string.isRequired,
   cardRare: PropTypes.string.isRequired,
   cardTrunfo: PropTypes.bool.isRequired,
   // hasTrunfo: PropTypes.bool.isRequired,
   isSaveButtonDisabled: PropTypes.bool.isRequired,
   onInputChange: PropTypes.func.isRequired,
-  onSaveButtonClick: PropTypes.func.isRequired,
+  // onSaveButtonClick: PropTypes.func.isRequired,
 };
