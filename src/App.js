@@ -15,6 +15,7 @@ class App extends React.Component {
       cardRare: 'normal',
       cardTrunfo: false,
       isSaveButtonDisabled: true,
+      onSaveButtonClick: false,
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -36,6 +37,7 @@ class App extends React.Component {
       cardRare,
       cardTrunfo,
       isSaveButtonDisabled,
+      onSaveButtonClick,
     } = this.state;
 
     return (
@@ -56,6 +58,7 @@ class App extends React.Component {
             cardRare={ cardRare }
             cardTrunfo={ cardTrunfo }
             isSaveButtonDisabled={ isSaveButtonDisabled }
+            onSaveButtonClick={ onSaveButtonClick }
           />
           <Card
             cardName={ cardName }
