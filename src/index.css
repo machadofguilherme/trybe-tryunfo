@@ -4,8 +4,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  outline: none;
-  border: none;
+  /* outline: none; */
+  /* border: none; */
 }
 
 body {
@@ -46,7 +46,7 @@ textarea {
   border-radius: 5px;
 }
 
-button {
+.btn {
   width: 300px;
   background-color: green;
   color: white;
@@ -57,7 +57,7 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+.btn:hover {
   opacity: .9;
 }
 

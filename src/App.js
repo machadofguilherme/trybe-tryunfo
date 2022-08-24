@@ -23,21 +23,48 @@ class App extends React.Component {
   handleChange({ target: { name, value } }) {
     this.setState({
       [name]: value,
+    }, () => {
+      const {
+        cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3,
+        cardImage, cardRare } = this.state;
+      const number90 = 90;
+
+      if (cardName && cardDescription && cardAttr1 && cardAttr2
+        && cardAttr3 && cardImage && cardRare) {
+        this.setState({ isSaveButtonDisabled: false });
+      } else {
+        this.setState({ isSaveButtonDisabled: true });
+      }
+
+      this.checks(cardAttr1, cardAttr2, cardAttr3, number90);
     });
+  }
+
+  checks(cardAttr1, cardAttr2, cardAttr3, number90) {
+    const number210 = 210;
+
+    if (Number(cardAttr1) + Number(cardAttr2) + Number(cardAttr3) > number210) {
+      this.setState({ isSaveButtonDisabled: true });
+    }
+
+    if (cardAttr1 > number90 || cardAttr1 < 0) {
+      this.setState({ isSaveButtonDisabled: true });
+    }
+
+    if (cardAttr2 > number90 || cardAttr2 < 0) {
+      this.setState({ isSaveButtonDisabled: true });
+    }
+
+    if (cardAttr3 > number90 || cardAttr3 < 0) {
+      this.setState({ isSaveButtonDisabled: true });
+    }
   }
 
   render() {
     const {
-      cardName,
-      cardDescription,
-      cardAttr1,
-      cardAttr2,
-      cardAttr3,
-      cardImage,
-      cardRare,
-      cardTrunfo,
-      isSaveButtonDisabled,
-      onSaveButtonClick,
+      cardName, cardDescription, cardAttr1, cardAttr2,
+      cardAttr3, cardImage, cardRare, cardTrunfo,
+      isSaveButtonDisabled, onSaveButtonClick,
     } = this.state;
 
     return (
