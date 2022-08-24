@@ -15,9 +15,11 @@ class App extends React.Component {
       cardRare: 'normal',
       cardTrunfo: false,
       isSaveButtonDisabled: true,
-      onSaveButtonClick: false,
+      onSaveButtonClick: [],
     };
+
     this.handleChange = this.handleChange.bind(this);
+    this.onSaveButtonClick = this.onSaveButtonClick.bind(this);
   }
 
   handleChange({ target: { name, value } }) {
@@ -38,6 +40,19 @@ class App extends React.Component {
 
       this.checks(cardAttr1, cardAttr2, cardAttr3, number90);
     });
+  }
+
+  onSaveButtonClick(objeto) {
+    this.setState((prevState) => ({
+      onSaveButtonClick: [...prevState.onSaveButtonClick, objeto],
+      cardName: '',
+      cardDescription: '',
+      cardImage: '',
+      cardAttr1: 0,
+      cardAttr2: 0,
+      cardAttr3: 0,
+      cardRare: 'normal',
+    }));
   }
 
   checks(cardAttr1, cardAttr2, cardAttr3, number90) {
@@ -64,7 +79,7 @@ class App extends React.Component {
     const {
       cardName, cardDescription, cardAttr1, cardAttr2,
       cardAttr3, cardImage, cardRare, cardTrunfo,
-      isSaveButtonDisabled, onSaveButtonClick,
+      isSaveButtonDisabled,
     } = this.state;
 
     return (
@@ -85,7 +100,7 @@ class App extends React.Component {
             cardRare={ cardRare }
             cardTrunfo={ cardTrunfo }
             isSaveButtonDisabled={ isSaveButtonDisabled }
-            onSaveButtonClick={ onSaveButtonClick }
+            onSaveButtonClick={ this.onSaveButtonClick }
           />
           <Card
             cardName={ cardName }
