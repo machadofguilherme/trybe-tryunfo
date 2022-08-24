@@ -16,6 +16,7 @@ class App extends React.Component {
       cardTrunfo: false,
       isSaveButtonDisabled: true,
       onSaveButtonClick: [],
+      changeBool: false,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -55,6 +56,7 @@ class App extends React.Component {
       cardAttr2: 0,
       cardAttr3: 0,
       cardRare: 'normal',
+      changeBool: true,
     }));
   }
 
@@ -82,7 +84,7 @@ class App extends React.Component {
     const {
       cardName, cardDescription, cardAttr1, cardAttr2,
       cardAttr3, cardImage, cardRare, cardTrunfo,
-      isSaveButtonDisabled,
+      isSaveButtonDisabled, onSaveButtonClick, changeBool,
     } = this.state;
 
     return (
@@ -116,6 +118,21 @@ class App extends React.Component {
             cardRare={ cardRare }
             cardTrunfo={ cardTrunfo }
           />
+          {
+            changeBool === true && onSaveButtonClick.map((cards) => (
+              <Card
+                key={ cards.cardName }
+                cardName={ cards.cardName }
+                cardDescription={ cards.cardDescription }
+                cardAttr1={ cards.cardAttr1 }
+                cardAttr2={ cards.cardAttr2 }
+                cardAttr3={ cards.cardAttr3 }
+                cardImage={ cards.cardImage }
+                cardRare={ cards.cardRare }
+                cardTrunfo={ cards.cardTrunfo }
+              />
+            ))
+          }
         </main>
       </>
     );
